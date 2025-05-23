@@ -28,7 +28,7 @@ function typeLine() {
     setTimeout(typeLine, 1000);
   } else {
     setTimeout(() => {
-      window.location.href = 'index.html';
+      window.location.href = 'home.html';
     }, 1500);
   }
 }
