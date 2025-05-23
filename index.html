@@ -2,46 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aryan Garg | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" />
 </head>
 <body>
+
+  <!-- THEME TOGGLE -->
+  <div class="theme-toggle">
+    <label class="switch">
+      <input type="checkbox" id="modeToggle">
+      <span class="slider round"></span>
+      <i class="bi bi-sun" id="sunIcon"></i>
+      <i class="bi bi-moon" id="moonIcon"></i>
+    </label>
+  </div>
+
+  <!-- HEADER -->
   <header data-aos="fade-down">
-    <h1>Your Name</h1>
+    <h1>Aryan Garg</h1>
     <p>Developer | Designer | Dreamer</p>
   </header>
 
-  <nav>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#resume">Resume</a>
     <a href="#contact">Contact</a>
   </nav>
 
+  <!-- ABOUT -->
   <section id="about" data-aos="fade-right">
     <h2>About Me</h2>
-    <p>I’m a creative web developer passionate about building great web experiences. Currently learning and experimenting with cool stuff.</p>
+    <p>Write a brief introduction about yourself here. Include your background, education, passions, or goals.</p>
   </section>
 
+  <!-- PROJECTS -->
   <section id="projects" data-aos="zoom-in">
     <h2>Projects</h2>
-    <div class="project">
-      <h3>Hire Swipe</h3>
-      <p>A Tinder-style hiring web app with Django, LinkedIn scraping, and instant auto-apply features.</p>
+    <div class="project-gallery">
+      <div class="project-card">
+        <img src="assets/project1.jpg" alt="Project 1">
+        <h3>Project One</h3>
+        <p>Short description. <a href="#">View More</a></p>
+      </div>
+      <div class="project-card">
+        <img src="assets/project2.jpg" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>Short description. <a href="#">View More</a></p>
+      </div>
     </div>
   </section>
 
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+  <!-- SKILLS -->
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><img src="assets/html5.png" alt="HTML5"> HTML5</div>
+      <div><img src="assets/css3.png" alt="CSS3"> CSS3</div>
+      <div><img src="assets/js.png" alt="JavaScript"> JavaScript</div>
+      <div><img src="assets/python.png" alt="Python"> Python</div>
+    </div>
   </section>
 
+  <!-- RESUME -->
+  <section id="resume" data-aos="fade-left">
+    <h2>Resume</h2>
+    <button onclick="document.getElementById('resumeModal').style.display='block'">View Resume</button>
+    <a href="assets/Your_Resume.pdf" download>Download My Resume</a>
+    <div id="resumeModal" class="modal">
+      <span class="close" onclick="document.getElementById('resumeModal').style.display='none'">&times;</span>
+      <iframe src="assets/Your_Resume.pdf" frameborder="0"></iframe>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/your-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Your Name</p>
+    <p>&copy; 2025 Aryan Garg. All rights reserved.</p>
   </footer>
 
+  <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+
+    const toggle = document.getElementById('modeToggle');
+    const sun = document.getElementById('sunIcon');
+    const moon = document.getElementById('moonIcon');
+
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode');
+      sun.style.display = document.body.classList.contains('dark-mode') ? 'none' : 'inline';
+      moon.style.display = document.body.classList.contains('dark-mode') ? 'inline' : 'none';
+    });
+  </script>
 </body>
 </html>
