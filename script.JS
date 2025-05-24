@@ -1,5 +1,7 @@
+// AOS Initialization
 AOS.init({ duration: 800, once: true });
 
+// Dark Mode Toggle
 const toggle = document.getElementById('modeToggle');
 const themeIcon = document.getElementById('themeIcon');
 
@@ -22,7 +24,7 @@ toggle.addEventListener('change', () => {
   setThemeIcon(isDarkMode);
 });
 
-// Resume modal logic
+// Resume Modal Logic
 function openResumeModal() {
   document.getElementById('resumeModal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
@@ -37,8 +39,8 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// Smooth scroll
-document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
@@ -48,7 +50,7 @@ document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
   });
 });
 
-// Project View More toggler
+// View More Toggle in Projects
 document.querySelectorAll('.view-more-btn').forEach(button => {
   button.addEventListener('click', () => {
     const extra = button.closest('.project-summary').querySelector('.extra-details');
@@ -58,43 +60,40 @@ document.querySelectorAll('.view-more-btn').forEach(button => {
   });
 });
 
-// Project carousel logic
-const carousels = [
-  ['assets/project1a.png', 'assets/project1b.png', 'assets/project1c.jpg'],
-  ['assets/project2a.jpg', 'assets/project2b.jpg', 'assets/project2c.jpg']
-];
-
-document.querySelectorAll('.project-carousel').forEach((carouselContainer, i) => {
-  const img = carouselContainer.querySelector('.carousel-img');
-  const prev = carouselContainer.querySelector('.carousel-btn.prev');
-  const next = carouselContainer.querySelector('.carousel-btn.next');
+// Project Carousel Logic (per project with multiple images)
+document.querySelectorAll('.project-carousel').forEach(carousel => {
+  const images = carousel.querySelectorAll('.carousel-img');
+  const prevBtn = carousel.querySelector('.prev');
+  const nextBtn = carousel.querySelector('.next');
   let index = 0;
 
-  function updateImage() {
-    img.src = carousels[i][index];
+  function showImage(i) {
+    images.forEach((img, idx) => {
+      img.classList.toggle('active', idx === i);
+    });
   }
 
-  prev.addEventListener('click', () => {
-    index = (index - 1 + carousels[i].length) % carousels[i].length;
-    updateImage();
+  prevBtn.addEventListener('click', () => {
+    index = (index - 1 + images.length) % images.length;
+    showImage(index);
   });
 
-  next.addEventListener('click', () => {
-    index = (index + 1) % carousels[i].length;
-    updateImage();
+  nextBtn.addEventListener('click', () => {
+    index = (index + 1) % images.length;
+    showImage(index);
   });
 
+  // Auto-slide every 5 seconds
   setInterval(() => {
-    index = (index + 1) % carousels[i].length;
-    updateImage();
+    index = (index + 1) % images.length;
+    showImage(index);
   }, 5000);
+
+  showImage(index); // Initialize on load
 });
 
-window.addEventListener('scroll', function() {
+// Navbar shadow on scroll
+window.addEventListener('scroll', function () {
   const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 50) {
-    navbar.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
-  } else {
-    navbar.style.boxShadow = 'none';
-  }
+  navbar.style.boxShadow = window.scrollY > 50 ? '0 4px 10px rgba(0, 0, 0, 0.1)' : 'none';
 });

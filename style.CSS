@@ -676,12 +676,14 @@ input:checked + .slider:before {
   overflow: hidden;
   border-radius: var(--border-radius);
 }
-
 .carousel-img {
+  display: none;
   width: 100%;
-  height: auto;
+  object-fit: cover;
+}
+
+.carousel-img.active {
   display: block;
-  transition: transform 0.5s ease;
 }
 
 .carousel-btn {
