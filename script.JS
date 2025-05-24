@@ -60,7 +60,7 @@ document.querySelectorAll('.view-more-btn').forEach(button => {
   });
 });
 
-// Project Carousel Logic (per project with multiple images)
+// Project Carousel Logic (independent carousels per project card)
 document.querySelectorAll('.project-carousel').forEach(carousel => {
   const images = carousel.querySelectorAll('.carousel-img');
   const prevBtn = carousel.querySelector('.prev');
@@ -83,13 +83,14 @@ document.querySelectorAll('.project-carousel').forEach(carousel => {
     showImage(index);
   });
 
-  // Auto-slide every 5 seconds
+  // Optional: Auto-slide
   setInterval(() => {
     index = (index + 1) % images.length;
     showImage(index);
   }, 5000);
 
-  showImage(index); // Initialize on load
+  // Initial show
+  showImage(index);
 });
 
 // Navbar shadow on scroll
