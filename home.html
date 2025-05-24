@@ -616,6 +616,7 @@ footer {
     <a href="#" class="logo">Aryan Garg</a>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#resume">Resume</a>
@@ -653,10 +654,95 @@ footer {
       <p>When I'm not coding, you can find me contributing to open source projects, reading about new technologies, or exploring the outdoors.</p>
     </div>
     <div class="about-image" data-aos="fade-left">
-      <img src="assets/profile.jpg" alt="Aryan Garg" class="profile-img">
+      <img src="assets/profile.PNG" alt="Aryan Garg" class="profile-img">
     </div>
   </div>
 </section>
+
+<!-- Experience Section -->
+<section id="experience" class="container">
+  <h2 data-aos="fade-up">My Experience</h2>
+  <div class="experience-grid">
+    
+    <!-- Experience Card 1 -->
+    <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+      <h3>Software Developer Intern</h3>
+      <h4>XYZ Tech Solutions</h4>
+      <p class="experience-duration">May 2024 – Aug 2024</p>
+      <ul>
+        <li>Built internal dashboards using Django and React.</li>
+        <li>Improved API performance by 40% via SQL optimization.</li>
+        <li>Collaborated with cross-functional teams using Agile.</li>
+      </ul>
+    </div>
+
+    <!-- Experience Card 2 -->
+    <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+      <h3>Web Developer</h3>
+      <h4>Freelance</h4>
+      <p class="experience-duration">Jan 2023 – Present</p>
+      <ul>
+        <li>Designed and deployed 10+ responsive websites.</li>
+        <li>Integrated payment systems using Stripe API.</li>
+        <li>Managed hosting and SEO optimization.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Experience Section */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.experience-card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.experience-card h3 {
+  margin-bottom: 5px;
+  font-size: 1.25rem;
+}
+
+.experience-card h4 {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.experience-duration {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 10px;
+}
+
+.experience-card ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.experience-card ul li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+</style>
+
 
 <!-- Projects Section -->
 <section id="projects" class="container">
